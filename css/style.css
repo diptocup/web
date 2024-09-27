@@ -1,30 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-* { 
+* {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;  
- } 
+  box-sizing: border-box;
+}
 
- body {
+body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
- }
-  
-.header__button-menu {
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
-  color: #ffffff;
+
+
 }
 
-.header__button-menu:hover, .header__search:hover {
-  color: rgb(0, 0, 0);
-  text-decoration: underline;
-}
-
-.header__wrap {
+/* .header__wrap {
   display: flex;
   height: 50vh;
 }
@@ -32,19 +22,35 @@
 .header__left {
   background-image: url(/img/woman.png);
   background-repeat: no-repeat;
-  background-size: 100% 500px ;
+  background-size: 100% 500px;
   width: 50%;
   display: flex;
-  flex-direction: column ;
+  flex-direction: column;
   padding: 50px 35px 50px 35px;
 }
 
-.header__right {
-  background-image: url(/img/twopeople.png);
-  background-repeat: no-repeat;
-  background-size: 100% 500px;
-  width: 50%;
-  padding: 50px 35px 50px 0px;
+.header__left_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header__button-menu {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.header__button-menu:hover,
+.header__search:hover {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+}
+
+.header__info {
+  color:#fff;
 }
 
 .header__left_bottom {
@@ -70,7 +76,6 @@
   border-radius: 6px;
   position: relative;
   cursor: pointer;
-  
 }
 
 .header__botton-bottom::after {
@@ -80,21 +85,172 @@
   margin-left: 18px;
 }
 
+.header__right {
+  background-image: url(/img/twopeople.png);
+  background-repeat: no-repeat;
+  background-size: 100% 500px;
+  width: 50%;
+  padding: 50px 35px 50px 0px;
+}
+
 .header__search {
   float: right;
   border: none;
   background-color: inherit;
   cursor: pointer;
   color: #ffffff;
+} */
+
+.burger-checkbox {
+  position: absolute;
+  visibility: hidden;
 }
 
-.header__left_top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+.burger {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 26px;
 }
+
+.burger::before,
+.burger::after {
+  content: '';
+  left: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 10px;
+  background: #000;
+}
+
+.burger::before {
+  top: 0;
+  box-shadow: 0 11px 0 #000;
+  transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
+}
+
+.burger::after {
+  bottom: 0;
+  transition: bottom .3s .15s, transform .3s;
+}
+
+.burger-checkbox:checked+.burger::before {
+  top: 11px;
+  transform: rotate(45deg);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
+  transition: box-shadow .15s, top .3s, transform .3s .15s;
+}
+
+.burger-checkbox:checked+.burger::after {
+  bottom: 11px;
+  transform: rotate(-45deg);
+  transition: bottom .3s, transform .3s .15s;
+}
+
+.menu-list {
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: grid;
+  gap: 12px;
+  padding: 42px 0;
+  margin: 0;
+  background: orange;
+  list-style-type: none;
+  transform: translateX(-100%);
+  transition: .3s;
+  width: 200px;
+}
+
+.menu-item {
+  display: block;
+  padding: 8px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, .2)
+}
+
+.burger-checkbox:checked~.menu-list {
+  transform: translateX(0);
+}
+
+/* .header {
+  display: flex;
+} */
 
 .header__info {
-  color:#fff;
+  background-color: gray;
+  width: 100%;
+  min-height: 40px;
+  max-height: 80px;
+  border-bottom: 3px solid red;
 }
+
+.top__info {
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.header__wrap {
+  display: flex;
+  width: 100%;
+  height: 780px;
+}
+
+.header__main {
+  background-image: url(/img/image_17.png);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-width: 100vw;
+}
+
+.main_top {
+  display: flex;
+}
+
+.bottom__top_left {
+  display: flex;
+  width: 30%;
+  height: 50%;
+  margin: 30px 0 0 50px;
+}
+
+.burger__menu {
+  border: none;
+  position: relative;
+  background-color: inherit;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.menu {}
+
+.bottom__top_center {}
+
+.bottom__top_right {}
+
+.search {}
+
+.main__bottom {}
+
+.main__info {}
+
+.info {}
+
+.header__botton-bottom {}
